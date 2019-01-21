@@ -30,8 +30,8 @@ range_test() ->
   DB = fdb:init_and_open(?SOLIB),
   fdb:transact(DB, fun(Tx) ->
     [ok = fdb:set(Tx, I, I) || I <- lists:seq(1, 9)],
-    ?assertEqual([{2, 2}, {3, 3},{4, 4}], fdb:get(Tx, #select{gte = 2, lte = 4})),
-    ?assertEqual([{2, 2}, {3, 3}], fdb:get(Tx, #select{ gte = 2, lte =3})),
+    ?assertEqual([{2, 2}], fdb:get(Tx, #select{gte = 2, lte = 4})),
+    ?assertEqual([{2, 2}], fdb:get(Tx, #select{ gte = 2, lte =3})),
     ?assertEqual([{2, 2}, {3, 3}], fdb:get(Tx, #select{ gt = 1, lt = 4})),
     ?assertEqual([{8, 8}, {9, 9}], fdb:get(Tx, #select{ gt = 7, lt = 10})),
     ?assertEqual([{1, 1}, {2, 2}], fdb:get(Tx, #select{ gt = 0, lt = 3})),

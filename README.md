@@ -4,13 +4,6 @@ Erlang bindings for [FoundationDB](https://foundationdb.com/).
 
 This is still very early alpha.
 
-## Todo
-
-- ~~A non-VM-blocking `fdb_nif:fdb_future_block_until_ready` using `enif_send` and `fdb_future_set_callback`. More inspiration [here](http://www.erlang-factory.com/upload/presentations/370/paul-davis-zero-to-emonk.pdf).~~
-- ~~Conversion from Erlang terms to keys using [the FDB tuple layer](https://foundationdb.com/documentation/api-python.html#api-python-tuple-layer).~~
-- ~~Map most-used functionality. (A lot of function calls return `not_implemented`.)~~
-- Feature-complete tests.
-- Fix memory leaks in case of non-happy paths.
 
 ## Prerequisites
 
@@ -31,6 +24,35 @@ git clone git@github.com:HappyPancake/fdb-erlang.git
 cd fdb-erlang
 chmod u+x rebar
 ./rebar get-deps compile eunit -v
+
+(venv) jiangphs-mbp-2:fdb-erlang jiangph$  ./rebar get-deps compile eunit -v
+==> fdb-erlang (get-deps)
+==> fdb-erlang (compile)
+==> fdb-erlang (eunit)
+======================== EUnit ========================
+module 'directory'
+module 'maybe'
+module 'gen_fdb'
+module 'subspace'
+subspace_test: basic_test (module 'subspace_test')...[0.102 s] ok
+module 'tuple'
+module 'tuple_test'
+  tuple_test: pack_test...ok
+  tuple_test: pack_order_test...ok
+  tuple_test: unpack_test...ok
+  [done in 0.009 s]
+module 'fdb'
+module 'fdb_nif'
+module 'stress_test'
+module 'directory_test'
+module 'fdb_test'
+  fdb_test: hello_world_test...[0.038 s] ok
+  fdb_test: transaction_test...[0.045 s] ok
+  fdb_test: range_test...[0.017 s] ok
+  [done in 0.109 s]
+fdb_nif_test: store_and_retrieve_test (module 'fdb_nif_test')...[0.001 s] ok
+=======================================================
+  All 8 tests passed.
 ```
 
 ## Example usage

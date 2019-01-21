@@ -162,7 +162,7 @@ static int get_FDBTransactionOption(ErlNifEnv* env, ERL_NIF_TERM atom, FDBTransa
     CMP_ATOM(atom_causal_read_risky,FDB_TR_OPTION_CAUSAL_READ_RISKY); 
     CMP_ATOM(atom_causal_read_disable,FDB_TR_OPTION_CAUSAL_READ_DISABLE); 
     CMP_ATOM(atom_next_write_no_write_conflict_range,FDB_TR_OPTION_NEXT_WRITE_NO_WRITE_CONFLICT_RANGE);
-    CMP_ATOM(atom_check_writes_enable,FDB_TR_OPTION_CHECK_WRITES_ENABLE); 
+    //CMP_ATOM(atom_check_writes_enable,FDBTransactionOptions::CHECK_WRITES_ENABLE);
     CMP_ATOM(atom_read_your_writes_disable,FDB_TR_OPTION_READ_YOUR_WRITES_DISABLE); 
     CMP_ATOM(atom_read_ahead_disable,FDB_TR_OPTION_READ_AHEAD_DISABLE); 
     CMP_ATOM(atom_durability_datacenter,FDB_TR_OPTION_DURABILITY_DATACENTER); 
@@ -172,7 +172,7 @@ static int get_FDBTransactionOption(ErlNifEnv* env, ERL_NIF_TERM atom, FDBTransa
     CMP_ATOM(atom_priority_batch,FDB_TR_OPTION_PRIORITY_BATCH); 
     CMP_ATOM(atom_initialize_new_database,FDB_TR_OPTION_INITIALIZE_NEW_DATABASE); 
     CMP_ATOM(atom_access_system_keys,FDB_TR_OPTION_ACCESS_SYSTEM_KEYS); 
-    CMP_ATOM(atom_debug_dump,FDB_TR_OPTION_DEBUG_DUMP); 
+    //CMP_ATOM(atom_debug_dump,FDBTransactionOptions::DEBUG_DUMP);
     CMP_ATOM(atom_timeout,FDB_TR_OPTION_TIMEOUT); 
     CMP_ATOM(atom_retry_limit,FDB_TR_OPTION_RETRY_LIMIT); 
     return 0;
